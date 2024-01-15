@@ -14,6 +14,8 @@ class AppTextForm extends StatelessWidget {
   TextInputAction? textInputAction;
   String? Function(String?)? validator;
   Color? fillColor;
+  Color fillColorBorder;
+  Color focusedColorBorder;
   Widget? suffixIcon;
 
   AppTextForm({
@@ -30,6 +32,8 @@ class AppTextForm extends StatelessWidget {
     this.labelColor = AppColors.white,
     this.fillColor = AppColors.blackTextField,
     this.suffixIcon,
+    this.fillColorBorder = AppColors.greyLine,
+    this.focusedColorBorder = AppColors.primary,
   });
 
   @override
@@ -65,19 +69,19 @@ class AppTextForm extends StatelessWidget {
               fillColor: fillColor,
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10),
-                borderSide: const BorderSide(
-                  color: AppColors.greyLine,
+                borderSide: BorderSide(
+                  color: fillColorBorder,
                 ),
               ),
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10),
-                borderSide: const BorderSide(
-                  color: AppColors.primary,
+                borderSide: BorderSide(
+                  color: focusedColorBorder,
                 ),
               ),
               hintText: label,
-              hintStyle: const TextStyle(
-                color: AppColors.greyLine,
+              hintStyle: TextStyle(
+                color: labelColor,
               ),
               contentPadding:
                   const EdgeInsets.symmetric(horizontal: 20, vertical: 20),

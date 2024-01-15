@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:to_do_app/app/constants/color.dart';
+import 'package:to_do_app/app/utils/splashscreen.dart';
 
 import 'app/routes/app_pages.dart';
 
@@ -17,9 +18,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // return FutureBuilder(
+    //   future: Future.delayed(const Duration(seconds: 1)),
+    //   builder: (context, snapshot) {
+    //     if (snapshot.connectionState == ConnectionState.done) {
     return GetMaterialApp(
       title: "Application",
-      initialRoute: Routes.LOGIN,
+      initialRoute: Routes.HOME,
       getPages: AppPages.routes,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
@@ -40,5 +45,9 @@ class MyApp extends StatelessWidget {
         ),
       ),
     );
+    //     }
+    //     return const SplashScreen();
+    //   },
+    // );
   }
 }

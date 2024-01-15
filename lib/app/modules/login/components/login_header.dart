@@ -19,7 +19,7 @@ class LoginHeader extends StatelessWidget {
             fixedSize: Size(Get.width, 56),
             withAssets: true,
             stringAssets: AssetsString.iconGoogle,
-            onPressed: () {},
+            onPressed: () => Get.offAllNamed(Routes.HOME),
           ),
           const SizedBox(height: 50),
           Row(
