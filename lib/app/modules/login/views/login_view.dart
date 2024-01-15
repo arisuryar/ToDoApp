@@ -17,14 +17,13 @@ class LoginView extends GetView<LoginController> {
         child: ListView(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
           children: [
-            const SizedBox(height: 40),
             AppText(
               text: 'Login',
               color: AppColors.white,
               fontWeight: FontWeight.w600,
               textSize: 42,
             ),
-            const SizedBox(height: 50),
+            const SizedBox(height: 30),
             LoginForm(),
             const SizedBox(height: 30),
             const LoginHeader(),
