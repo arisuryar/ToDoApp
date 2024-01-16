@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:to_do_app/app/constants/color.dart';
+import 'package:to_do_app/app/controllers/auth_controller.dart';
 import 'package:to_do_app/app/modules/signup/controllers/signup_controller.dart';
 import 'package:to_do_app/app/widgets/app_button.dart';
 import 'package:to_do_app/app/widgets/app_text.dart';
@@ -12,6 +13,8 @@ class SignUpForm extends StatelessWidget {
   final globalKey = GlobalKey<FormState>();
 
   final controller = Get.put(SignupController());
+
+  final authController = Get.find<AuthController>();
 
   @override
   Widget build(BuildContext context) {
@@ -81,10 +84,14 @@ class SignUpForm extends StatelessWidget {
                 ),
                 const SizedBox(height: 20),
                 AppButton(
-                  label: 'Register',
+                  label: authController.isLoading.isTrue
+                      ? 'Loading...'
+                      : 'Register',
                   onPressed: controller.enableButton.isTrue
                       ? () {
                           controller.signup(globalKey);
+                          authController.signup(controller.nameC.text,
+                              controller.emailC.text, controller.passC.text);
                         }
                       : null,
                   fixedSize: Size(Get.width, 56),

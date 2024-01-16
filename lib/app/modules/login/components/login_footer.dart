@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:to_do_app/app/constants/assets.dart';
 import 'package:to_do_app/app/constants/color.dart';
+import 'package:to_do_app/app/routes/app_pages.dart';
 import 'package:to_do_app/app/widgets/app_button_outlined.dart';
 import 'package:to_do_app/app/widgets/app_text.dart';
 
-class SignUpHeader extends StatelessWidget {
-  const SignUpHeader({super.key});
+class LoginFooter extends StatelessWidget {
+  const LoginFooter({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,26 +15,26 @@ class SignUpHeader extends StatelessWidget {
       child: Column(
         children: [
           AppButtonOutlined(
-            label: 'Register with Google',
+            label: 'Login with Google',
             fixedSize: Size(Get.width, 56),
             withAssets: true,
             stringAssets: AssetsString.iconGoogle,
-            onPressed: () {},
+            onPressed: () => Get.offAllNamed(Routes.HOME),
           ),
-          const SizedBox(height: 30),
+          const SizedBox(height: 50),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               AppText(
-                  text: 'Already have an account ?',
+                  text: 'Don’t have an account ?',
                   color: AppColors.greyLine,
                   fontWeight: FontWeight.w400,
                   textSize: 14.0),
               const SizedBox(width: 5),
               GestureDetector(
-                onTap: () => Get.back(),
+                onTap: () => Get.toNamed(Routes.SIGNUP),
                 child: AppText(
-                    text: 'Login',
+                    text: 'Register',
                     color: AppColors.secondary,
                     fontWeight: FontWeight.w600,
                     textSize: 14.0),

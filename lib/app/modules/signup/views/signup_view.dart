@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:to_do_app/app/constants/color.dart';
 import 'package:to_do_app/app/modules/signup/components/signup_form.dart';
-import 'package:to_do_app/app/modules/signup/components/signup_header.dart';
+import 'package:to_do_app/app/modules/signup/components/signup_footer.dart';
 import 'package:to_do_app/app/widgets/app_text.dart';
 
 import '../controllers/signup_controller.dart';
@@ -26,7 +26,7 @@ class SignupView extends GetView<SignupController> {
             const SizedBox(height: 30),
             SignUpForm(),
             const SizedBox(height: 30),
-            const SignUpHeader(),
+            const SignUpFooter(),
           ],
         ),
       ),

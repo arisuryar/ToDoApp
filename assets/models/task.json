@@ -1,0 +1,14 @@
+{
+    "uid" : "asdhakjsfgkajsbf",
+    "tittle" : "Belajar Algoritma",
+    "description" : "Hari minggu besok saya harus belajar Algoritma",
+    "category" : "Pendidikan",
+    "deadlineDate" : "21 January 2024",
+    "deadlineTime" : "09:00 PM",
+    "createdAt" : "Tuesday, 16 January 2024 11:00 PM",
+    "isCompleted" : false,
+    "attachments" : [
+        {"type": "image", "url": "http://example.com/image.jpg"},
+        {"type": "document", "url": "http://example.com/document.pdf"}
+    ]
+}

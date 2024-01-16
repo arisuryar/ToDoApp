@@ -35,9 +35,7 @@ class LoginController extends GetxController {
   }
 
   void login(GlobalKey<FormState> globalKey) {
-    if (globalKey.currentState!.validate()) {
-      print('sukkess');
-    }
+    if (globalKey.currentState!.validate()) {}
   }
 
   @override

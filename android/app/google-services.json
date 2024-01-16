@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "253994058427",
+    "project_id": "todoapp-282ec",
+    "storage_bucket": "todoapp-282ec.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:253994058427:android:666e2ee0408671d6f6df9e",
+        "android_client_info": {
+          "package_name": "com.arisuryar.to_do_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDBD4PvM-ZbFoxKTONa9Qw9mxILZhqHLM8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

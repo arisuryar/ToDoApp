@@ -5,7 +5,7 @@ import 'package:intl/intl.dart';
 import 'package:to_do_app/app/constants/assets.dart';
 import 'package:to_do_app/app/modules/home/components/home_bottomsheet.dart';
 import 'package:to_do_app/app/modules/home/components/home_card.dart';
-import 'package:to_do_app/app/modules/home/components/home_tittle.dart';
+import 'package:to_do_app/app/modules/home/components/home_header.dart';
 
 import '../controllers/home_controller.dart';
 
@@ -14,7 +14,7 @@ class HomeView extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: homeTittle,
+      appBar: homeHeader,
       body: SafeArea(
         child: ListView(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
