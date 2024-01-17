@@ -143,7 +143,6 @@ class AuthController extends GetxController {
         password: password,
       );
       await userCredential.user!.updateDisplayName(name);
-      print(userCredential.user);
       isLoading.value = true;
       if (isLoading.isTrue) {
         Get.dialog(

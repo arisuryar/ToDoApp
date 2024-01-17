@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:to_do_app/app/constants/color.dart';
 import 'package:to_do_app/app/widgets/app_text.dart';
 
 class HomeCard extends StatelessWidget {
   final String tittle;
+  final String category;
+  final String description;
   Widget? leadingTittle;
   String? subCardLeft;
   Color? colorSubCardLeft;
@@ -16,6 +19,8 @@ class HomeCard extends StatelessWidget {
   HomeCard({
     super.key,
     required this.tittle,
+    required this.category,
+    required this.description,
     this.leadingTittle,
     this.subCardLeft,
     this.subCardRight,
@@ -51,19 +56,56 @@ class HomeCard extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                leadingTittle ?? SizedBox(),
-                const SizedBox(width: 15),
-                AppText(
-                  text: tittle,
-                  color: AppColors.white,
-                  textSize: 16.0,
-                  fontWeight: FontWeight.w500,
+                Row(
+                  children: [
+                    leadingTittle ?? SizedBox(),
+                    const SizedBox(width: 15),
+                    AppText(
+                      text: tittle,
+                      color: AppColors.white,
+                      textSize: 20.0,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ],
+                ),
+                Container(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(5),
+                    color: AppColors.primary,
+                  ),
+                  child: AppText(
+                    text: category,
+                    color: AppColors.white,
+                    textSize: 12,
+                  ),
                 ),
               ],
             ),
           ),
-          const SizedBox(height: 20),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 54),
+            child: Row(
+              children: [
+                Container(
+                  alignment: Alignment.centerLeft,
+                  width: 150,
+                  child: Text(
+                    description,
+                    overflow: TextOverflow.ellipsis,
+                    textAlign: TextAlign.start,
+                    maxLines: 1,
+                    style: GoogleFonts.poppins(
+                        color: AppColors.greyLine, fontSize: 14),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(height: 10),
           Container(
             margin: const EdgeInsets.symmetric(horizontal: 20),
             width: Get.width,

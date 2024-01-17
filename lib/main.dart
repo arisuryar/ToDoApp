@@ -19,9 +19,6 @@ void main() async {
   runApp(MyApp());
 }
 
-// User Login Auth sudah, Tinggal simpan ke CloudFirestore
-// Setelah itu buat Register dan simpan ke cloud firestore data user, model sudah dibuat
-
 class MyApp extends StatelessWidget {
   MyApp({super.key});
 
@@ -30,7 +27,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-      future: Future.delayed(const Duration(seconds: 5)),
+      future: Future.delayed(const Duration(seconds: 1)),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.done) {
           return StreamBuilder<User?>(
@@ -53,6 +50,7 @@ class MyApp extends StatelessWidget {
                     textTheme: GoogleFonts.poppinsTextTheme(
                         Theme.of(context).textTheme),
                     appBarTheme: AppBarTheme(
+                      scrolledUnderElevation: 0,
                       elevation: 0,
                       titleTextStyle: GoogleFonts.quicksand(
                         color: AppColors.white,
