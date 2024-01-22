@@ -1,26 +1,20 @@
+import 'package:ToDoApp/app/constants/color.dart';
+import 'package:ToDoApp/app/modules/signup/controllers/signup_controller.dart';
+import 'package:ToDoApp/app/widgets/app_button.dart';
+import 'package:ToDoApp/app/widgets/app_textform.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:to_do_app/app/constants/color.dart';
-import 'package:to_do_app/app/controllers/auth_controller.dart';
-import 'package:to_do_app/app/modules/signup/controllers/signup_controller.dart';
-import 'package:to_do_app/app/widgets/app_button.dart';
-import 'package:to_do_app/app/widgets/app_text.dart';
-import 'package:to_do_app/app/widgets/app_textform.dart';
 
 class SignUpForm extends StatelessWidget {
   SignUpForm({super.key});
 
-  final globalKey = GlobalKey<FormState>();
-
   final controller = Get.put(SignupController());
-
-  final authController = Get.find<AuthController>();
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       child: Form(
-        key: globalKey,
+        key: controller.globalKey,
         child: Obx(() => Column(
               children: [
                 AppTextForm(
@@ -84,38 +78,15 @@ class SignUpForm extends StatelessWidget {
                 ),
                 const SizedBox(height: 20),
                 AppButton(
-                  label: authController.isLoading.isTrue
-                      ? 'Loading...'
-                      : 'Register',
+                  label:
+                      controller.isLoading.isTrue ? 'Loading...' : 'Register',
                   onPressed: controller.enableButton.isTrue
-                      ? () {
-                          controller.signup(globalKey);
-                          authController.signup(controller.nameC.text,
-                              controller.emailC.text, controller.passC.text);
-                        }
+                      ? () => controller.signup(controller.globalKey)
                       : null,
                   fixedSize: Size(Get.width, 56),
                   color: controller.enableButton.isTrue
                       ? AppColors.white
                       : AppColors.greyLine,
-                ),
-                const SizedBox(height: 30),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Container(
-                      width: Get.width / 2.5,
-                      color: AppColors.greyLine,
-                      height: 1,
-                    ),
-                    AppText(
-                        text: 'Or', textSize: 16, color: AppColors.greyLine),
-                    Container(
-                      width: Get.width / 2.5,
-                      color: AppColors.greyLine,
-                      height: 1,
-                    ),
-                  ],
                 ),
               ],
             )),

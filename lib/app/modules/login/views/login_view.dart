@@ -1,10 +1,9 @@
+import 'package:ToDoApp/app/constants/color.dart';
+import 'package:ToDoApp/app/modules/login/components/login_footer.dart';
+import 'package:ToDoApp/app/modules/login/components/login_form.dart';
+import 'package:ToDoApp/app/widgets/app_text.dart';
 import 'package:flutter/material.dart';
-import 'package:to_do_app/app/constants/color.dart';
-import 'package:to_do_app/app/modules/login/components/login_form.dart';
-
 import 'package:get/get.dart';
-import 'package:to_do_app/app/modules/login/components/login_footer.dart';
-import 'package:to_do_app/app/widgets/app_text.dart';
 
 import '../controllers/login_controller.dart';
 
@@ -17,11 +16,14 @@ class LoginView extends GetView<LoginController> {
         child: ListView(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
           children: [
-            AppText(
-              text: 'Login',
-              color: AppColors.white,
-              fontWeight: FontWeight.w600,
-              textSize: 42,
+            Container(
+              alignment: Alignment.center,
+              child: AppText(
+                text: 'Login',
+                color: AppColors.white,
+                fontWeight: FontWeight.w700,
+                textSize: 28,
+              ),
             ),
             const SizedBox(height: 30),
             LoginForm(),

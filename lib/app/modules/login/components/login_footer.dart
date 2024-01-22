@@ -1,48 +1,30 @@
+import 'package:ToDoApp/app/constants/color.dart';
+import 'package:ToDoApp/app/routes/app_pages.dart';
+import 'package:ToDoApp/app/widgets/app_text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:to_do_app/app/constants/assets.dart';
-import 'package:to_do_app/app/constants/color.dart';
-import 'package:to_do_app/app/routes/app_pages.dart';
-import 'package:to_do_app/app/widgets/app_button_outlined.dart';
-import 'package:to_do_app/app/widgets/app_text.dart';
 
 class LoginFooter extends StatelessWidget {
   const LoginFooter({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      child: Column(
-        children: [
-          AppButtonOutlined(
-            label: 'Login with Google',
-            fixedSize: Size(Get.width, 56),
-            withAssets: true,
-            stringAssets: AssetsString.iconGoogle,
-            onPressed: () => Get.offAllNamed(Routes.HOME),
-          ),
-          const SizedBox(height: 50),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              AppText(
-                  text: 'Don’t have an account ?',
-                  color: AppColors.greyLine,
-                  fontWeight: FontWeight.w400,
-                  textSize: 14.0),
-              const SizedBox(width: 5),
-              GestureDetector(
-                onTap: () => Get.toNamed(Routes.SIGNUP),
-                child: AppText(
-                    text: 'Register',
-                    color: AppColors.secondary,
-                    fontWeight: FontWeight.w600,
-                    textSize: 14.0),
-              ),
-            ],
-          ),
-        ],
-      ),
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        AppText(
+            text: 'Don’t have an account ?',
+            color: AppColors.greyLine,
+            fontWeight: FontWeight.w400),
+        const SizedBox(width: 5),
+        GestureDetector(
+          onTap: () => Get.toNamed(Routes.SIGNUP),
+          child: AppText(
+              text: 'Register',
+              color: AppColors.secondary,
+              fontWeight: FontWeight.w600),
+        ),
+      ],
     );
   }
 }

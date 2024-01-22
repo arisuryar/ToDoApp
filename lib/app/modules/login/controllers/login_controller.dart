@@ -1,11 +1,16 @@
+import 'package:ToDoApp/app/controllers/auth_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class LoginController extends GetxController {
+  final globalKey = GlobalKey<FormState>();
+  final authController = Get.find<AuthController>();
+
   TextEditingController emailC = TextEditingController();
   TextEditingController passC = TextEditingController();
 
-  var obscureText = true.obs;
+  var isLoading = false.obs;
+  var obscureText = false.obs;
   var isEmailValid = ''.obs;
   var isPasswordValid = ''.obs;
 
@@ -17,7 +22,7 @@ class LoginController extends GetxController {
   }
 
   String? validatorEmail(String value) {
-    if (value == null || value.isEmpty) {
+    if (value == '' || value.isEmpty) {
       return 'Please enter some text';
     } else if (!value.isEmail) {
       return 'Format email tidak valid';
@@ -26,16 +31,20 @@ class LoginController extends GetxController {
   }
 
   String? validatorPassword(String value) {
-    if (value == null || value.isEmpty) {
+    if (value == '' || value.isEmpty) {
       return 'Password tidak boleh kosong';
-    } else if (value.length <= 6) {
+    } else if (value.length < 6) {
       return 'Password kurang dari 6 huruf';
     }
     return null;
   }
 
-  void login(GlobalKey<FormState> globalKey) {
-    if (globalKey.currentState!.validate()) {}
+  void login(GlobalKey<FormState> globalKey) async {
+    if (globalKey.currentState!.validate() == true) {
+      isLoading.toggle();
+      await authController.login(emailC.text, passC.text);
+      isLoading.toggle();
+    }
   }
 
   @override

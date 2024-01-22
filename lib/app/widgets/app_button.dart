@@ -1,6 +1,6 @@
+import 'package:ToDoApp/app/constants/color.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:to_do_app/app/constants/color.dart';
 
 // ignore: must_be_immutable
 class AppButton extends StatelessWidget {
@@ -9,6 +9,7 @@ class AppButton extends StatelessWidget {
   Size? fixedSize;
   Color? color;
   Color? backgroundColor;
+  double? fontSize;
 
   AppButton({
     super.key,
@@ -17,6 +18,7 @@ class AppButton extends StatelessWidget {
     this.fixedSize,
     this.color,
     this.backgroundColor = AppColors.primary,
+    this.fontSize = 16,
   });
   @override
   Widget build(BuildContext context) {
@@ -33,7 +35,7 @@ class AppButton extends StatelessWidget {
       child: Text(
         label,
         style: GoogleFonts.poppins(
-            color: color, fontSize: 16, fontWeight: FontWeight.w500),
+            color: color, fontSize: fontSize, fontWeight: FontWeight.w600),
       ),
     );
   }

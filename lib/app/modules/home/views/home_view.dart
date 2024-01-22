@@ -1,33 +1,31 @@
+import 'package:ToDoApp/app/constants/assets.dart';
+import 'package:ToDoApp/app/constants/color.dart';
+import 'package:ToDoApp/app/data/models/task_model.dart';
+import 'package:ToDoApp/app/modules/home/components/home_card.dart';
+import 'package:ToDoApp/app/modules/home/components/home_header.dart';
+import 'package:ToDoApp/app/modules/home/widgets/category.dart';
+import 'package:ToDoApp/app/modules/home/widgets/date_picker.dart';
+import 'package:ToDoApp/app/modules/home/widgets/description.dart';
+import 'package:ToDoApp/app/modules/home/widgets/time_picker.dart';
+import 'package:ToDoApp/app/modules/home/widgets/tittle.dart';
+import 'package:ToDoApp/app/routes/app_pages.dart';
+import 'package:ToDoApp/app/widgets/app_button.dart';
+import 'package:ToDoApp/app/widgets/app_text.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+
 import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:intl/intl.dart';
-import 'package:to_do_app/app/constants/assets.dart';
-import 'package:to_do_app/app/constants/color.dart';
-import 'package:to_do_app/app/controllers/task_controller.dart';
-import 'package:to_do_app/app/data/models/task_model.dart';
-import 'package:to_do_app/app/modules/home/components/home_bottomsheet.dart';
-import 'package:to_do_app/app/modules/home/components/home_card.dart';
-import 'package:to_do_app/app/modules/home/components/home_header.dart';
-import 'package:to_do_app/app/modules/home/widgets/category.dart';
-import 'package:to_do_app/app/modules/home/widgets/date_picker.dart';
-import 'package:to_do_app/app/modules/home/widgets/description.dart';
-import 'package:to_do_app/app/modules/home/widgets/time_picker.dart';
-import 'package:to_do_app/app/modules/home/widgets/tittle.dart';
-import 'package:to_do_app/app/widgets/app_button.dart';
-import 'package:to_do_app/app/widgets/app_text.dart';
 
 import '../controllers/home_controller.dart';
 
 class HomeView extends GetView<HomeController> {
-  HomeView({super.key});
+  const HomeView({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: homeHeader,
-      body: StreamBuilder(
+      body: StreamBuilder<QuerySnapshot<Map<String, dynamic>>>(
         stream: controller.streamTask,
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
@@ -47,6 +45,7 @@ class HomeView extends GetView<HomeController> {
                   color: AppColors.white),
             );
           }
+          Future.delayed(const Duration(seconds: 2));
           return ListView.builder(
             itemCount: snapshot.data!.docs.length,
             padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
@@ -67,6 +66,8 @@ class HomeView extends GetView<HomeController> {
                     icon: Icons.alarm,
                     colorSubCardLeft: Colors.red,
                     colorSubCardRight: AppColors.greyLine,
+                    onTap: () => Get.toNamed(Routes.DETAIL_TASK,
+                        arguments: snapshot.data!.docs[index].id),
                   ),
                   const SizedBox(height: 20),
                 ],

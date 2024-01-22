@@ -1,8 +1,8 @@
+import 'package:ToDoApp/app/constants/color.dart';
+import 'package:ToDoApp/app/modules/home/controllers/home_controller.dart';
+import 'package:ToDoApp/app/widgets/app_text.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:to_do_app/app/constants/color.dart';
-import 'package:to_do_app/app/modules/home/controllers/home_controller.dart';
-import 'package:to_do_app/app/widgets/app_text.dart';
 
 class DescriptionWidget extends StatelessWidget {
   const DescriptionWidget({
@@ -19,14 +19,13 @@ class DescriptionWidget extends StatelessWidget {
       children: [
         AppText(
           text: ' Description',
-          color: AppColors.primary,
-          textSize: 16,
+          color: AppColors.secondary,
           fontWeight: FontWeight.w700,
         ),
         const SizedBox(height: 10),
         TextField(
           controller: controller.descriptionC,
-          textInputAction: TextInputAction.next,
+          textInputAction: TextInputAction.newline,
           maxLines: 10,
           style: const TextStyle(color: AppColors.white),
           decoration: InputDecoration(
@@ -34,7 +33,6 @@ class DescriptionWidget extends StatelessWidget {
                 const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
             hintText: 'Description',
             hintStyle: GoogleFonts.poppins(
-              fontSize: 16,
               color: AppColors.greyLine,
             ),
             enabledBorder: OutlineInputBorder(
@@ -47,7 +45,8 @@ class DescriptionWidget extends StatelessWidget {
             ),
             focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10),
-              borderSide: const BorderSide(color: AppColors.primary, width: 2),
+              borderSide:
+                  const BorderSide(color: AppColors.secondary, width: 2),
             ),
           ),
         ),

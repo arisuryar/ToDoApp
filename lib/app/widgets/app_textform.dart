@@ -1,5 +1,5 @@
+import 'package:ToDoApp/app/constants/color.dart';
 import 'package:flutter/material.dart';
-import 'package:to_do_app/app/constants/color.dart';
 
 // ignore: must_be_immutable
 class AppTextForm extends StatelessWidget {
@@ -45,10 +45,7 @@ class AppTextForm extends StatelessWidget {
         children: [
           Text(
             label,
-            style: TextStyle(
-              color: labelColor,
-              fontSize: 16,
-            ),
+            style: TextStyle(color: labelColor, fontWeight: FontWeight.w600),
           ),
           const SizedBox(height: 10),
           TextFormField(
@@ -62,7 +59,6 @@ class AppTextForm extends StatelessWidget {
             validator: validator,
             style: TextStyle(
               color: labelColor,
-              fontSize: 16,
             ),
             decoration: InputDecoration(
               filled: true,
@@ -80,9 +76,8 @@ class AppTextForm extends StatelessWidget {
                 ),
               ),
               hintText: label,
-              hintStyle: TextStyle(
-                color: labelColor,
-              ),
+              hintStyle:
+                  TextStyle(color: labelColor, fontWeight: FontWeight.w600),
               contentPadding:
                   const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
               focusColor: labelColor,

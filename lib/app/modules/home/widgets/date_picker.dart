@@ -1,8 +1,8 @@
+import 'package:ToDoApp/app/constants/color.dart';
+import 'package:ToDoApp/app/modules/home/controllers/home_controller.dart';
+import 'package:ToDoApp/app/widgets/app_text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:to_do_app/app/constants/color.dart';
-import 'package:to_do_app/app/modules/home/controllers/home_controller.dart';
-import 'package:to_do_app/app/widgets/app_text.dart';
 
 class DatePicker extends StatelessWidget {
   const DatePicker({
@@ -17,7 +17,11 @@ class DatePicker extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        AppText(text: 'Deadline Date', color: AppColors.white, textSize: 16),
+        AppText(
+          text: 'Deadline Date',
+          color: AppColors.secondary,
+          fontWeight: FontWeight.w700,
+        ),
         const SizedBox(height: 10),
         Obx(() => OutlinedButton(
               onPressed: () async {
@@ -44,11 +48,10 @@ class DatePicker extends StatelessWidget {
                         ? 'Choose Date'
                         : controller.selectedDate.value,
                     color: AppColors.greyLine,
-                    textSize: 16,
                   ),
                   const Icon(
                     Icons.calendar_today_outlined,
-                    color: AppColors.primary,
+                    color: AppColors.secondary,
                   ),
                 ],
               ),

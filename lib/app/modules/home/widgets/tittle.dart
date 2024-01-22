@@ -1,8 +1,8 @@
+import 'package:ToDoApp/app/constants/color.dart';
+import 'package:ToDoApp/app/modules/home/controllers/home_controller.dart';
+import 'package:ToDoApp/app/widgets/app_text.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:to_do_app/app/constants/color.dart';
-import 'package:to_do_app/app/modules/home/controllers/home_controller.dart';
-import 'package:to_do_app/app/widgets/app_text.dart';
 
 class TittleWidget extends StatelessWidget {
   const TittleWidget({
@@ -19,8 +19,7 @@ class TittleWidget extends StatelessWidget {
       children: [
         AppText(
           text: ' Tittle',
-          color: AppColors.primary,
-          textSize: 16,
+          color: AppColors.secondary,
           fontWeight: FontWeight.w700,
         ),
         const SizedBox(height: 10),
@@ -33,7 +32,6 @@ class TittleWidget extends StatelessWidget {
                 const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
             hintText: 'Tittle',
             hintStyle: GoogleFonts.poppins(
-              fontSize: 16,
               color: AppColors.greyLine,
             ),
             enabledBorder: OutlineInputBorder(
@@ -46,7 +44,8 @@ class TittleWidget extends StatelessWidget {
             ),
             focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10),
-              borderSide: const BorderSide(color: AppColors.primary, width: 2),
+              borderSide:
+                  const BorderSide(color: AppColors.secondary, width: 2),
             ),
           ),
         ),

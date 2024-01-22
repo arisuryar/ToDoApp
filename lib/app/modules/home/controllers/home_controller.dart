@@ -1,11 +1,11 @@
+import 'package:ToDoApp/app/constants/color.dart';
+import 'package:ToDoApp/app/controllers/auth_controller.dart';
+import 'package:ToDoApp/app/controllers/task_controller.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
-import 'package:to_do_app/app/constants/color.dart';
-import 'package:to_do_app/app/controllers/auth_controller.dart';
-import 'package:to_do_app/app/controllers/task_controller.dart';
 
 class HomeController extends GetxController {
   TextEditingController tittleC = TextEditingController();
@@ -13,7 +13,7 @@ class HomeController extends GetxController {
   TextEditingController descriptionC = TextEditingController();
 
   var dateTime = DateFormat('EEEE, dd MMMM yyyy').format(DateTime.now());
-  var formattedTime = DateFormat('hh:mm a').format(DateTime.now());
+  var formattedTime = DateFormat('HH:mm').format(DateTime.now());
 
   final authController = Get.find<AuthController>();
   final taskController = Get.put(TaskController());
@@ -24,6 +24,7 @@ class HomeController extends GetxController {
   Stream<QuerySnapshot<Map<String, dynamic>>> get streamTask => collectionUser
       .doc(authController.currentUserNow!.uid)
       .collection('task')
+      .where('isCompleted', isEqualTo: false)
       .snapshots();
 
   DateTime? initialDate = DateTime.now();
@@ -57,7 +58,7 @@ class HomeController extends GetxController {
 
   void validationSubmit() async {
     if (isValid == true) {
-      taskController.addTask(
+      await taskController.addTask(
         tittle: tittleC.text,
         category: categoryC.text,
         description: descriptionC.text,
@@ -65,9 +66,8 @@ class HomeController extends GetxController {
         deadlineTime: selectedTime.value,
         isCompleted: false,
         createdAt: '$dateTime $formattedTime',
-        image: 'Testing',
       );
-      await Get.defaultDialog(
+      Get.defaultDialog(
         contentPadding:
             const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
         backgroundColor: AppColors.blackTextField,
@@ -86,6 +86,7 @@ class HomeController extends GetxController {
       descriptionC.clear();
       selectedDate.value = '';
       selectedTime.value = '';
+      update();
     } else {
       Get.defaultDialog(
         contentPadding:
@@ -106,7 +107,6 @@ class HomeController extends GetxController {
 
   @override
   void onClose() {
-    // TODO: implement onClose
     tittleC.dispose();
     categoryC.dispose();
     descriptionC.dispose();

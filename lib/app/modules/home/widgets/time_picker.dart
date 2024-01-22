@@ -1,8 +1,8 @@
+import 'package:ToDoApp/app/constants/color.dart';
+import 'package:ToDoApp/app/modules/home/controllers/home_controller.dart';
+import 'package:ToDoApp/app/widgets/app_text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:to_do_app/app/constants/color.dart';
-import 'package:to_do_app/app/modules/home/controllers/home_controller.dart';
-import 'package:to_do_app/app/widgets/app_text.dart';
 
 class TimePicker extends StatelessWidget {
   const TimePicker({
@@ -17,7 +17,11 @@ class TimePicker extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        AppText(text: 'Deadline Time', color: AppColors.white, textSize: 16),
+        AppText(
+          text: 'Deadline Time',
+          color: AppColors.secondary,
+          fontWeight: FontWeight.w700,
+        ),
         const SizedBox(height: 10),
         Obx(() => OutlinedButton(
               onPressed: () async {
@@ -42,11 +46,10 @@ class TimePicker extends StatelessWidget {
                         ? 'Choose Time'
                         : controller.selectedTime.value,
                     color: AppColors.greyLine,
-                    textSize: 16,
                   ),
                   const Icon(
                     Icons.alarm,
-                    color: AppColors.primary,
+                    color: AppColors.secondary,
                   ),
                 ],
               ),

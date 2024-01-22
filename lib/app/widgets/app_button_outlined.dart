@@ -1,6 +1,6 @@
+import 'package:ToDoApp/app/constants/color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:to_do_app/app/constants/color.dart';
 
 // ignore: must_be_immutable
 class AppButtonOutlined extends StatelessWidget {
@@ -38,18 +38,14 @@ class AppButtonOutlined extends StatelessWidget {
                 Text(
                   label,
                   style: const TextStyle(
-                      color: AppColors.white,
-                      fontSize: 16,
-                      fontWeight: FontWeight.w500),
+                      color: AppColors.white, fontWeight: FontWeight.w600),
                 ),
               ],
             )
           : Text(
               label,
               style: const TextStyle(
-                  color: AppColors.white,
-                  fontSize: 16,
-                  fontWeight: FontWeight.w500),
+                  color: AppColors.white, fontWeight: FontWeight.w600),
             ),
     );
   }

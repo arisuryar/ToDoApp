@@ -1,8 +1,8 @@
+import 'package:ToDoApp/app/constants/color.dart';
+import 'package:ToDoApp/app/modules/home/controllers/home_controller.dart';
+import 'package:ToDoApp/app/widgets/app_text.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:to_do_app/app/constants/color.dart';
-import 'package:to_do_app/app/modules/home/controllers/home_controller.dart';
-import 'package:to_do_app/app/widgets/app_text.dart';
 
 class CategoryWidget extends StatelessWidget {
   const CategoryWidget({
@@ -19,8 +19,7 @@ class CategoryWidget extends StatelessWidget {
       children: [
         AppText(
           text: ' Category',
-          color: AppColors.primary,
-          textSize: 16,
+          color: AppColors.secondary,
           fontWeight: FontWeight.w700,
         ),
         const SizedBox(height: 10),
@@ -33,7 +32,6 @@ class CategoryWidget extends StatelessWidget {
                 const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
             hintText: 'Category',
             hintStyle: GoogleFonts.poppins(
-              fontSize: 16,
               color: AppColors.greyLine,
             ),
             enabledBorder: OutlineInputBorder(
@@ -46,7 +44,8 @@ class CategoryWidget extends StatelessWidget {
             ),
             focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10),
-              borderSide: const BorderSide(color: AppColors.primary, width: 2),
+              borderSide:
+                  const BorderSide(color: AppColors.secondary, width: 2),
             ),
           ),
         ),

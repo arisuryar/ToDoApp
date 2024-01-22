@@ -1,15 +1,15 @@
+import 'package:ToDoApp/app/constants/color.dart';
+import 'package:ToDoApp/app/modules/signup/components/signup_footer.dart';
+import 'package:ToDoApp/app/modules/signup/components/signup_form.dart';
+import 'package:ToDoApp/app/widgets/app_text.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:to_do_app/app/constants/color.dart';
-import 'package:to_do_app/app/modules/signup/components/signup_form.dart';
-import 'package:to_do_app/app/modules/signup/components/signup_footer.dart';
-import 'package:to_do_app/app/widgets/app_text.dart';
 
 import '../controllers/signup_controller.dart';
 
 class SignupView extends GetView<SignupController> {
-  const SignupView({Key? key}) : super(key: key);
+  const SignupView({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,11 +17,14 @@ class SignupView extends GetView<SignupController> {
         child: ListView(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
           children: [
-            AppText(
-              text: 'Register',
-              color: AppColors.white,
-              fontWeight: FontWeight.w600,
-              textSize: 42,
+            Container(
+              alignment: Alignment.center,
+              child: AppText(
+                text: 'Register',
+                color: AppColors.white,
+                fontWeight: FontWeight.w700,
+                textSize: 28,
+              ),
             ),
             const SizedBox(height: 30),
             SignUpForm(),

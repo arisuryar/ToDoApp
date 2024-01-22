@@ -1,8 +1,8 @@
+import 'package:ToDoApp/app/constants/assets.dart';
+import 'package:ToDoApp/app/constants/color.dart';
+import 'package:ToDoApp/app/widgets/app_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:to_do_app/app/constants/assets.dart';
-import 'package:to_do_app/app/constants/color.dart';
-import 'package:to_do_app/app/widgets/app_text.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});

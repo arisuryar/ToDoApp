@@ -1,17 +1,19 @@
+import 'package:ToDoApp/app/constants/color.dart';
+import 'package:ToDoApp/app/controllers/auth_controller.dart';
+import 'package:ToDoApp/app/utils/splashscreen.dart';
+import 'package:ToDoApp/firebase_options.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:to_do_app/app/constants/color.dart';
-import 'package:to_do_app/app/controllers/auth_controller.dart';
-import 'package:to_do_app/app/utils/splashscreen.dart';
-import 'package:to_do_app/firebase_options.dart';
 
 import 'app/routes/app_pages.dart';
 
 void main() async {
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
@@ -34,7 +36,7 @@ class MyApp extends StatelessWidget {
             stream: authController.streamUser,
             builder: (context, snapshot) {
               if (snapshot.connectionState == ConnectionState.active) {
-                print(snapshot.data);
+                debugPrint('${snapshot.data}');
                 return GetMaterialApp(
                   title: "Application",
                   initialRoute: snapshot.data != null &&

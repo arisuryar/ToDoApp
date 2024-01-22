@@ -5,8 +5,8 @@ class Task {
   String? deadlineDate;
   String? deadlineTime;
   String? createdAt;
+  String? uid;
   bool? isCompleted;
-  String? image;
 
   Task(
       {this.tittle,
@@ -15,8 +15,8 @@ class Task {
       this.deadlineDate,
       this.deadlineTime,
       this.createdAt,
-      this.isCompleted,
-      this.image});
+      this.uid,
+      this.isCompleted});
 
   Task.fromJson(Map<String, dynamic> json) {
     tittle = json['tittle'];
@@ -25,8 +25,8 @@ class Task {
     deadlineDate = json['deadlineDate'];
     deadlineTime = json['deadlineTime'];
     createdAt = json['createdAt'];
+    uid = json['uid'];
     isCompleted = json['isCompleted'];
-    image = json['image'];
   }
 
   Map<String, dynamic> toJson() {
@@ -38,8 +38,8 @@ class Task {
     data['deadlineDate'] = deadlineDate;
     data['deadlineTime'] = deadlineTime;
     data['createdAt'] = createdAt;
+    data['uid'] = uid;
     data['isCompleted'] = isCompleted;
-    data['image'] = image;
 
     return data;
   }
