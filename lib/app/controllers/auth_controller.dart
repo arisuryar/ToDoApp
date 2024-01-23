@@ -24,6 +24,7 @@ class AuthController extends GetxController {
 
   var isLoading = false.obs;
 
+  // Update Profile
   void updatePhotoUrl(String url) async {
     Get.dialog(
         const Center(
@@ -179,6 +180,7 @@ class AuthController extends GetxController {
     }
   }
 
+  // Signup
   Future<void> signup(String name, String email, String password) async {
     Get.dialog(
         const Center(
@@ -296,6 +298,7 @@ class AuthController extends GetxController {
     }
   }
 
+  // Logout
   void signout() async {
     Get.defaultDialog(
       contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),

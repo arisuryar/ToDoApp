@@ -49,18 +49,7 @@ class LoginForm extends StatelessWidget {
                     ),
                   ),
                 ),
-                Container(
-                  alignment: Alignment.centerRight,
-                  child: GestureDetector(
-                    onTap: () => debugPrint('Lupa password'),
-                    child: AppText(
-                        text: 'Forgot Password ? ',
-                        color: AppColors.secondary,
-                        fontWeight: FontWeight.w600,
-                        textSize: 14.0),
-                  ),
-                ),
-                const SizedBox(height: 70),
+                const SizedBox(height: 20),
                 AppButton(
                   label: controller.isLoading.isTrue ? 'Loading...' : 'Login',
                   onPressed: controller.enableButton.isTrue
