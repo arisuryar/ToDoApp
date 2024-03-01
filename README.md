@@ -5,4 +5,4 @@
 
 |Add Task View|Detail Task View|Edit Task View|Delete Task View|
 |------------|-------------|-------------|-------------|
-|<img src="assets/images/add-task.png" width="250" height="500">|<img src="assets/images/detail-task.png" width="250" height="500">|<img src="assets/images/edit-task.png" width="250" height="500">|<img src="assets/images/delete-task.png.png" width="250" height="500">|
+|<img src="assets/images/add-task.png" width="250" height="500">|<img src="assets/images/detail-task.png" width="250" height="500">|<img src="assets/images/edit-task.png" width="250" height="500">|<img src="assets/images/delete-task.png" width="250" height="500">|
