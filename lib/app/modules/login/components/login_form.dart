@@ -1,7 +1,6 @@
 import 'package:ToDoApp/app/constants/color.dart';
 import 'package:ToDoApp/app/modules/login/controllers/login_controller.dart';
 import 'package:ToDoApp/app/widgets/app_button.dart';
-import 'package:ToDoApp/app/widgets/app_text.dart';
 import 'package:ToDoApp/app/widgets/app_textform.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -42,9 +41,7 @@ class LoginForm extends StatelessWidget {
                   suffixIcon: GestureDetector(
                     onTap: () => controller.obscureText.toggle(),
                     child: Icon(
-                      controller.obscureText.isTrue
-                          ? Icons.visibility_off
-                          : Icons.visibility,
+                      controller.obscureText.isTrue ? Icons.visibility_off : Icons.visibility,
                       color: AppColors.greyLine,
                     ),
                   ),
@@ -52,13 +49,9 @@ class LoginForm extends StatelessWidget {
                 const SizedBox(height: 20),
                 AppButton(
                   label: controller.isLoading.isTrue ? 'Loading...' : 'Login',
-                  onPressed: controller.enableButton.isTrue
-                      ? () => controller.login(controller.globalKey)
-                      : null,
+                  onPressed: controller.enableButton.isTrue ? () => controller.login(controller.globalKey) : null,
                   fixedSize: Size(Get.width, 56),
-                  color: controller.enableButton.isTrue
-                      ? AppColors.white
-                      : AppColors.greyLine,
+                  color: controller.enableButton.isTrue ? AppColors.white : AppColors.greyLine,
                 ),
               ],
             )),
